@@ -1,0 +1,2 @@
+# Vote-4-Change
+The current voting system requires people to go to a polling booth and cast their vote there. The recent pandemic of COVID-19 highlighted how dangerous this system is. Vote 4 Change is an online voting portal through which people can cast their votes digitally. To access it they would have to visit the portal, log in their details and cast a ballot. It would also have an interface where the user can cast their vote. The system will also make sure that a person casts only one vote.
