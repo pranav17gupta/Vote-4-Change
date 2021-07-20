@@ -5,32 +5,32 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static Connection conn=null;
-    static
-    {
-        try
-        {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn= DriverManager.getConnection("jdbc:mysql://localhost/e_voting_db","root","maa@9251");
-            System.out.println("Driver loaded successfully");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public static Connection getConnection()
-    {
-        return conn;
-    }
-    public static void closeConnection()
-    {
-        try {
-            if(conn!=null) {
-                conn.close();
+    private static Connection conn;
+    static{
+            try
+            {
+                Class.forName("oracle.jdbc.OracleDriver");
+                conn=DriverManager.getConnection("jdbc:oracle:thin:@//DESKTOP-V0BN5VQ:1521/xe","evoting","evoting");
+                System.out.println("Driver loaded and connection opened successfully");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            catch(ClassNotFoundException cnf){
+                cnf.printStackTrace();
+            }
+            catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
-    }
+        public static Connection getConnection(){
+            return conn;
+        }
+        public static void closeConnection(){
+            try{
+                conn.close();
+                System.out.println("Disconnected From DB");
+            }
+            catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
 }
+
